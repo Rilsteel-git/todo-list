@@ -18,12 +18,6 @@ npm-debug.log*
 yarn-debug.log*
 lerna-debug.log*
 
-# Sequelize migrations
-migrations/
-
-# Sequelize models
-models/
-
 # SQLite database files
 *.sqlite3
 
