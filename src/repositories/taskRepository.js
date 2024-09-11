@@ -15,17 +15,17 @@ exports.createTask = async (taskData) => {
 };
 
 exports.updateTask = async (id, updateData) => {
-  const Task = await Task.findByPk(id);
-  if (Task) {
-    return await Task.update(updateData);
+  const task = await Task.findByPk(id);
+  if (task) {
+    return await task.update(updateData);
   }
   throw new Error("Task not found");
 };
 
 exports.deleteTask = async (id) => {
-  const Task = await Task.findByPk(id);
-  if (Task) {
-    return await Task.destroy();
+  const task = await Task.findByPk(id);
+  if (task) {
+    return await task.destroy();
   }
   throw new Error("Task not found");
 };

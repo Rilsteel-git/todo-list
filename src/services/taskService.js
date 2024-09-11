@@ -14,6 +14,9 @@ exports.getById = async (id) => {
 };
 
 exports.addTask = async (taskData) => {
+  if (!taskData.GroupID) {
+    throw new Error("GroupID is required to create a task.");
+  }
   return await taskRepository.createTask(taskData);
 };
 

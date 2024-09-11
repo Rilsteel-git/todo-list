@@ -1,5 +1,10 @@
 const groupRepository = require("../repositories/groupRepository.js");
 
+exports.getGroupsWithTasks = async (userId) => {
+  const groups = await groupRepository.getGroupsWithTasks(userId);
+  return groups;
+};
+
 exports.getAll = async (userId) => {
   const groups = await groupRepository.getAllGroupsForUser(userId);
   return groups;

@@ -13,6 +13,7 @@ exports.getAllGroups = async (req, res, next) => {
     next(error);
   }
 };
+
 exports.getGroupById = async (req, res, next) => {
   try {
     const group = await groupService.getById(req.params.id);
