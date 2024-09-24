@@ -2,27 +2,12 @@ const groupService = require("../services/groupService.js");
 
 exports.getAllGroups = async (req, res, next) => {
   try {
-    const userId = req.userId;
-    const groups = await groupService.getAll(userId);
+    const groups = await groupService.getAllGroups();
     res.status(200).json({
       message: "Success",
       data: groups,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
-    next(error);
-  }
-};
-
-exports.getGroupById = async (req, res, next) => {
-  try {
-    const group = await groupService.getById(req.params.id);
-    res.status(200).json({
-      message: "Success",
-      data: group,
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
@@ -51,7 +36,6 @@ exports.updateGroup = async (req, res, next) => {
       data: group,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
@@ -63,7 +47,6 @@ exports.deleteGroup = async (req, res, next) => {
       message: "Group successfully deleted",
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };

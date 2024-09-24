@@ -19,6 +19,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      ProfileImage: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       CreatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -26,6 +30,7 @@ module.exports = {
       },
     });
   },
+
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable("users");
   },

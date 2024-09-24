@@ -1,8 +1,8 @@
 const { Task } = require("../../models/associations.js");
 
-exports.getAllTaskByUser = async (userId) => {
+exports.getAllTasks = async (filters) => {
   return await Task.findAll({
-    where: { UserID: userId },
+    where: filters,
   });
 };
 

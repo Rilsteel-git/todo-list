@@ -8,11 +8,12 @@ if (!SECRET_KEY) {
 }
 
 const authenticateToken = (req, res, next) => {
-  const token = req.headers["authorization"]?.split(" ")[1];
-
-  if (!token) {
+  const authHeader = req.headers["authorization"];
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ error: "Unauthorized" });
   }
+
+  const token = authHeader.split(" ")[1];
 
   jwt.verify(token, SECRET_KEY, (err, user) => {
     if (err) {

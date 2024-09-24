@@ -4,6 +4,10 @@ exports.getAllUsers = async () => {
   return await User.findAll();
 };
 
+exports.findByEmail = async (email) => {
+  return await User.findOne({ where: { Email: email } });
+};
+
 exports.getUserById = async (id) => {
   return await User.findByPk(id);
 };

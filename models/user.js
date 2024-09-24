@@ -22,6 +22,10 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    ProfileImage: {
+      // New column
+      type: DataTypes.STRING,
+    },
     CreatedAt: {
       type: DataTypes.DATE,
       allowNull: false,

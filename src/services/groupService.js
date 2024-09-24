@@ -1,21 +1,16 @@
 const groupRepository = require("../repositories/groupRepository.js");
 
-exports.getGroupsWithTasks = async (userId) => {
-  const groups = await groupRepository.getGroupsWithTasks(userId);
+exports.getAllGroups = async () => {
+  const groups = await groupRepository.getAllGroups();
   return groups;
 };
 
-exports.getAll = async (userId) => {
-  const groups = await groupRepository.getAllGroupsForUser(userId);
-  return groups;
-};
-
-exports.getById = async (id) => {
-  const group = await groupRepository.getGroupById(id);
-  if (group) {
-    return group;
+exports.findByName = async (groupName) => {
+  const group = await groupRepository.findByName(groupName);
+  if (!group) {
+    throw new Error("Group not found");
   }
-  throw new Error("Group not found");
+  return group;
 };
 
 exports.addGroup = async (groupData) => {

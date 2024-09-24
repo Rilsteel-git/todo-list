@@ -8,6 +8,14 @@ exports.getAll = async () => {
   });
 };
 
+exports.findByEmail = async (email) => {
+  const user = await userRepository.findByEmail(email);
+  if (!user) {
+    throw new Error("Email is not found!");
+  }
+  return user;
+};
+
 exports.getById = async (id) => {
   const user = await userRepository.getUserById(id);
   if (user) {

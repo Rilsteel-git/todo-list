@@ -17,7 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router);
 app.use(errorHandler);
 
-console.log("Server is about to start...");
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  console.log("The server will start...");
+  app.listen(port, () => {
+    console.log(`The server running on the port ${port}`);
+  });
+}
+
+module.exports = app;

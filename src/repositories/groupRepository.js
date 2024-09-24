@@ -1,13 +1,11 @@
 const { Group } = require("../../models/associations.js");
 
-exports.getAllGroupsForUser = async (userId) => {
-  return await Group.findAll({
-    where: { UserID: userId },
-  });
+exports.getAllGroups = async () => {
+  return await Group.findAll();
 };
 
-exports.getGroupById = async (id) => {
-  return await Group.findByPk(id);
+exports.findByName = async (groupName) => {
+  return await Group.findOne({ where: { GroupName: groupName } });
 };
 
 exports.createGroup = async (groupData) => {

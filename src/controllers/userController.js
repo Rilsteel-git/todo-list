@@ -8,7 +8,6 @@ exports.getAllUsers = async (req, res, next) => {
       data: users,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
@@ -21,7 +20,6 @@ exports.getUserById = async (req, res, next) => {
       data: user,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
@@ -34,7 +32,6 @@ exports.updateUser = async (req, res, next) => {
       data: user,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
@@ -46,7 +43,6 @@ exports.deleteUser = async (req, res, next) => {
       message: "User successfully deleted",
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
     next(error);
   }
 };
